@@ -7,6 +7,5 @@ const ReminderSchema = new mongoose.Schema({
   read: { type: Boolean, default: false },
 });
 
-
 module.exports =
   mongoose.models.Reminder || mongoose.model("Reminder", ReminderSchema);

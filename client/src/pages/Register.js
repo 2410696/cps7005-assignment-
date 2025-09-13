@@ -17,7 +17,7 @@ function Register() {
     setError("");
     try {
       await API.post("/auth/register", formData);
-      navigate("/login"); // Redirect to login after successful register
+      navigate("/login"); 
     } catch (err) {
       setError(err.response?.data?.msg || "Registration failed");
     }

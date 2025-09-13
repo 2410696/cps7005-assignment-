@@ -39,7 +39,6 @@ function Dashboard() {
     }
   };
 
-  // ✅ Normalize category data
   const categories = Array.isArray(data.categoryData)
     ? data.categoryData.map((c) => ({ category: c._id, amount: c.total }))
     : Object.entries(data.categoryData || {}).map(([cat, amt]) => ({ category: cat, amount: amt }));
@@ -47,7 +46,6 @@ function Dashboard() {
   return (
     <div className="container mt-4">
       <div className="row">
-        {/* Spending by Category */}
         <div className="col-md-6">
           <h4>Spending by Category</h4>
           <Pie
@@ -63,7 +61,6 @@ function Dashboard() {
           />
         </div>
 
-        {/* Monthly Trend */}
         <div className="col-md-6">
           <h4>Monthly Spending Trend</h4>
           <Bar
@@ -81,7 +78,6 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* ✅ Insights section */}
       {data.insights?.length > 0 && (
         <div className="row mt-4">
           <div className="col">

@@ -11,7 +11,6 @@ function Expenses() {
   });
   const [error, setError] = useState("");
 
-  // Fetch expenses on load
   useEffect(() => {
     fetchExpenses();
   }, []);
