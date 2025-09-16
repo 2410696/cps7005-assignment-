@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Dashboard from "./pages/Dashboard";
@@ -10,7 +10,15 @@ import Suggestions from "./pages/Suggestions";
 import Reports from "./pages/Reports";
 
 function App() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   return (
     <Router>

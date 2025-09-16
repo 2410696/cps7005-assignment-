@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import API from "../services/api";
 import { Form, Button, Alert, Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -32,14 +32,32 @@ function Login() {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" name="email" onChange={handleChange} required />
+          <Form.Control
+            type="email"
+            name="email"
+            onChange={handleChange}
+            required
+          />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" name="password" onChange={handleChange} required />
+          <Form.Control
+            type="password"
+            name="password"
+            onChange={handleChange}
+            required
+          />
         </Form.Group>
-        <Button type="submit" variant="primary" className="w-100">Login</Button>
+        <Button type="submit" variant="primary" className="w-100">
+          Login
+        </Button>
       </Form>
+
+      {/* Register link */}
+      <div className="mt-3 text-center">
+        <span>Don’t have an account? </span>
+        <Link to="/register">Register here</Link>
+      </div>
     </Card>
   );
 }
